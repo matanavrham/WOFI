@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "587243016080",
+    "project_id": "wofi-e2d00",
+    "storage_bucket": "wofi-e2d00.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:587243016080:android:17327664b2ae3a1e65ad15",
+        "android_client_info": {
+          "package_name": "com.example.wofi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv0-ODVzNxEeApYpU6z64mcfyPTlsMxhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
