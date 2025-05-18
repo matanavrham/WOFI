@@ -72,22 +72,8 @@
         android:textColor="@android:color/white" />
 
     <!-- Text Above Google Icon -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:text="Or log in using Google"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp" />
 
     <!-- Google Login Button -->
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:scaleType="centerInside"
-        android:src="@drawable/google_icon" />
 
     <LinearLayout
         android:layout_width="match_parent"

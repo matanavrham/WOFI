@@ -1,45 +1,67 @@
 package com.example.wofi;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFragment extends Fragment {
 
+    private EditText emailInput, passwordInput;
+    private Button loginButton;
+    private FirebaseAuth mAuth;
+
     public LoginFragment() {
-        // קונסטרקטור ריק נדרש על ידי Fragment
+        // קונסטרקטור ריק – חובה לפרגמנט
     }
 
+    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false);
-    }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_login, container, false);
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
+        // קישור בין רכיבי ה-XML למחלקה
+        emailInput = view.findViewById(R.id.email_input);
+        passwordInput = view.findViewById(R.id.password_input);
+        loginButton = view.findViewById(R.id.login_btn);
 
-        // אתחול כפתור ההרשמה
-        Button registerButton = view.findViewById(R.id.sign_btn);
+        // התחברות ל-Firebase
+        mAuth = FirebaseAuth.getInstance();
 
-        // מעבר למסך ההרשמה בלחיצה על הכפתור
-        registerButton.setOnClickListener(v -> {
-            FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-            fragmentTransaction.replace(R.id.fragment_container, new Signup()); // טעינת SignUpFragment
-            fragmentTransaction.addToBackStack(null); // מאפשר חזרה אחורה
-            fragmentTransaction.commit();
+        // מאזין ללחיצה על כפתור LOGIN
+        loginButton.setOnClickListener(v -> {
+            String email = emailInput.getText().toString().trim();
+            String password = passwordInput.getText().toString().trim();
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(getContext(), "אנא מלא את כל השדות", Toast.LENGTH_SHORT).show();
+            } else {
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                Toast.makeText(getContext(), "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
+                                // כאן אפשר לנווט למסך הבא
+                            } else {
+                                Toast.makeText(getContext(),
+                                        "ההתחברות נכשלה: " + task.getException().getMessage(),
+                                        Toast.LENGTH_LONG).show();
+                            }
+                        });
+            }
         });
+
+        return view;
     }
 }
