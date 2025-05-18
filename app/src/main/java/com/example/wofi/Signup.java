@@ -26,6 +26,7 @@ public class Signup extends Fragment {
 
     public Signup() {
         // Required empty public constructor
+        super(R.layout.fragment_singup); // שים לב לשם הנכון של הקובץ
     }
 
     @Override

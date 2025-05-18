@@ -23,6 +23,7 @@ public class LoginFragment extends Fragment {
 
     public LoginFragment() {
         // קונסטרקטור ריק – חובה לפרגמנט
+        super(R.layout.fragment_login);
     }
 
     @Nullable
