@@ -53,14 +53,6 @@
         android:padding="10dp"
         android:inputType="textPassword"/>
 
-    <!-- Forgot Password Link -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
-        android:text="Forgot password?"
-        android:textColor="@android:color/holo_blue_dark" />
-
     <!-- Login Button -->
     <Button
         android:id="@+id/login_btn"
@@ -70,10 +62,6 @@
         android:backgroundTint="@android:color/holo_blue_dark"
         android:text="LOGIN"
         android:textColor="@android:color/white" />
-
-    <!-- Text Above Google Icon -->
-
-    <!-- Google Login Button -->
 
     <LinearLayout
         android:layout_width="match_parent"

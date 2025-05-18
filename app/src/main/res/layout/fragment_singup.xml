@@ -1,123 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/signup_fragment"
-    android:orientation="vertical"
-    android:padding="20dp"
-    android:gravity="center">
+    android:layout_height="match_parent">
 
-    <!-- Title -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign Up"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="30dp" />
-
-    <!-- Username Label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Username"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp" />
-
-    <!-- Username Input -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your username"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp" />
-
-    <!-- Email Label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp" />
-
-    <!-- Email Input -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your email"
-        android:inputType="textEmailAddress"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp" />
-
-    <!-- Phone Number Label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone Number"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp" />
-
-    <!-- Phone Number Input -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your phone number"
-        android:inputType="phone"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp" />
-
-    <!-- Password Label -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Password"
-        android:textSize="16sp"
-        android:layout_marginBottom="10dp" />
-
-    <!-- Password Input -->
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter your password"
-        android:inputType="textPassword"
-        android:padding="10dp"
-        android:layout_marginBottom="20dp" />
-
-    <!-- Sign Up Button -->
-    <Button
-        android:id="@+id/signup_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@android:color/holo_blue_dark"
-        android:text="SIGNUP"
-        android:textColor="@android:color/white" />
-
-    <!-- Back to Login Link -->
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:layout_marginTop="20dp">
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:gravity="center">
 
+        <!-- כותרת -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
-            android:textSize="16sp"
-            android:textColor="@android:color/black" />
+            android:text="הרשמה"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="30dp" />
 
-        <Button
-
-            android:id="@+id/login_nbtn"
+        <!-- שם משתמש -->
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:text="Login"
-            android:textColor="@android:color/holo_blue_dark"
-            android:textSize="16sp" />
-    </LinearLayout>
+            android:text="שם משתמש"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="הכנס שם משתמש"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- אימייל -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="אימייל"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="הכנס אימייל"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- טלפון -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="מספר טלפון"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/phone_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="הכנס טלפון"
+            android:inputType="phone"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- סיסמה -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="סיסמה"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp" />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="הכנס סיסמה"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- סוג משתמש -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="בחר סוג משתמש:"
+            android:textSize="16sp"
+            android:layout_marginBottom="5dp" />
+
+        <RadioGroup
+            android:id="@+id/user_type_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_client"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="לקוח" />
+
+            <RadioButton
+                android:id="@+id/radio_professional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="בעל מקצוע" />
+        </RadioGroup>
+
+        <!-- סוג מקצוע (אם נבחר בעל מקצוע) -->
+        <LinearLayout
+            android:id="@+id/profession_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="בחר תחום:"
+                android:textSize="16sp" />
+
+            <RadioGroup
+                android:id="@+id/profession_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/radio_babysitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="בייביסיטר" />
+
+                <RadioButton
+                    android:id="@+id/radio_dogwalker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="דוגווקר" />
+
+                <RadioButton
+                    android:id="@+id/radio_tutor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="מורה פרטי" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- כפתור הרשמה -->
+        <Button
+            android:id="@+id/signup_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:text="הרשמה"
+            android:textColor="@android:color/white" />
+
+        <!-- קישור למסך התחברות -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="כבר יש לך חשבון?"
+                android:textSize="16sp"
+                android:textColor="@android:color/black" />
+
+            <Button
+                android:id="@+id/login_nbtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/transparent"
+                android:text="התחבר"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
