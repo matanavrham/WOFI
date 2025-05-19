@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- ההרשאה צריכה לבוא כאן, מחוץ ל־<application> -->
+    <uses-permission
+        android:name="android.permission.POST_NOTIFICATIONS"
+        tools:ignore="ManifestOrder" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,6 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.WOFI"
         tools:targetApi="31">
+        <service android:name=".MyNotificationService" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -20,7 +27,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- כאן ה־receiver -->
+        <receiver android:name=".ReminderReceiver" />
     </application>
 
 </manifest>

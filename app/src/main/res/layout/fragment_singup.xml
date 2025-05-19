@@ -32,9 +32,10 @@
             android:id="@+id/username_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="הכנס שם משתמש"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <!-- אימייל -->
         <TextView
@@ -48,10 +49,11 @@
             android:id="@+id/email_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="הכנס אימייל"
             android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <!-- טלפון -->
         <TextView
@@ -65,10 +67,11 @@
             android:id="@+id/phone_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="הכנס טלפון"
             android:inputType="phone"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <!-- סיסמה -->
         <TextView
@@ -82,10 +85,11 @@
             android:id="@+id/password_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:hint="הכנס סיסמה"
             android:inputType="textPassword"
-            android:padding="10dp"
-            android:layout_marginBottom="20dp" />
+            android:minHeight="48dp"
+            android:padding="10dp" />
 
         <!-- סוג משתמש -->
         <TextView

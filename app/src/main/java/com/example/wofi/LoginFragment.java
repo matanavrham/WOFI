@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.TextView;
+import androidx.navigation.Navigation;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -40,6 +42,13 @@ public class LoginFragment extends Fragment {
         // התחברות ל-Firebase
         mAuth = FirebaseAuth.getInstance();
 
+        Button signBtn = view.findViewById(R.id.sign_btn);
+
+        signBtn.setOnClickListener(v -> {
+            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_signupFragment);
+        });
+
+
         // מאזין ללחיצה על כפתור LOGIN
         loginButton.setOnClickListener(v -> {
             String email = emailInput.getText().toString().trim();
@@ -53,7 +62,7 @@ public class LoginFragment extends Fragment {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 Toast.makeText(getContext(), "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
-                                // כאן אפשר לנווט למסך הבא
+                                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeFragment);
                             } else {
                                 Toast.makeText(getContext(),
                                         "ההתחברות נכשלה: " + task.getException().getMessage(),
