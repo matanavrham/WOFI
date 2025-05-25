@@ -22,6 +22,7 @@ public class LoginFragment extends Fragment {
     private EditText emailInput, passwordInput;
     private Button loginButton;
     private FirebaseAuth mAuth;
+    private TextView signupLink;
 
     public LoginFragment() {
         // קונסטרקטור ריק – חובה לפרגמנט
@@ -37,41 +38,43 @@ public class LoginFragment extends Fragment {
         // קישור בין רכיבי ה-XML למחלקה
         emailInput = view.findViewById(R.id.email_input);
         passwordInput = view.findViewById(R.id.password_input);
-        loginButton = view.findViewById(R.id.login_btn);
+        loginButton = view.findViewById(R.id.login_button);
+        signupLink = view.findViewById(R.id.signup_link);
 
         // התחברות ל-Firebase
         mAuth = FirebaseAuth.getInstance();
 
-        Button signBtn = view.findViewById(R.id.sign_btn);
-
-        signBtn.setOnClickListener(v -> {
-            Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_signupFragment);
-        });
-
-
         // מאזין ללחיצה על כפתור LOGIN
-        loginButton.setOnClickListener(v -> {
-            String email = emailInput.getText().toString().trim();
-            String password = passwordInput.getText().toString().trim();
+        loginButton.setOnClickListener(v -> login());
 
-            if (email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(getContext(), "אנא מלא את כל השדות", Toast.LENGTH_SHORT).show();
-            } else {
-                mAuth.signInWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                Toast.makeText(getContext(), "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
-                                Navigation.findNavController(v).navigate(R.id.action_loginFragment_to_homeFragment);
-                            } else {
-                                Toast.makeText(getContext(),
-                                        "ההתחברות נכשלה: " + task.getException().getMessage(),
-                                        Toast.LENGTH_LONG).show();
-                            }
-                        });
-            }
-        });
+        signupLink.setOnClickListener(v -> navigateToSignup());
 
         return view;
+    }
+
+    private void login() {
+        String email = emailInput.getText().toString().trim();
+        String password = passwordInput.getText().toString().trim();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(getContext(), "אנא מלא את כל השדות", Toast.LENGTH_SHORT).show();
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            FirebaseUser user = mAuth.getCurrentUser();
+                            Toast.makeText(getContext(), "התחברת בהצלחה!", Toast.LENGTH_SHORT).show();
+                            Navigation.findNavController(loginButton).navigate(R.id.action_loginFragment_to_homeFragment);
+                        } else {
+                            Toast.makeText(getContext(),
+                                    "ההתחברות נכשלה: " + task.getException().getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    });
+        }
+    }
+
+    private void navigateToSignup() {
+        Navigation.findNavController(loginButton).navigate(R.id.action_loginFragment_to_signupFragment);
     }
 }

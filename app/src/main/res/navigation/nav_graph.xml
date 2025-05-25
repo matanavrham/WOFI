@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
@@ -28,6 +29,60 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.wofi.HomeFragment"
-        android:label="Home" >
+        android:label="Home">
+        <action
+            android:id="@+id/action_homeFragment_to_professionalsListFragment"
+            app:destination="@id/professionalsListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_professionalProfileFragment"
+            app:destination="@id/professionalProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_clientsListFragment"
+            app:destination="@id/clientsListFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/professionalsListFragment"
+        android:name="com.example.wofi.ProfessionalsListFragment"
+        android:label="Professionals List">
+        <action
+            android:id="@+id/action_professionalsListFragment_to_professionalProfileFragment"
+            app:destination="@id/professionalProfileFragment" />
+        <action
+            android:id="@+id/action_professionalsListFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/clientsListFragment"
+        android:name="com.example.wofi.ClientsListFragment"
+        android:label="Clients List">
+        <action
+            android:id="@+id/action_clientsListFragment_to_professionalProfileFragment"
+            app:destination="@id/professionalProfileFragment" />
+        <action
+            android:id="@+id/action_clientsListFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/professionalProfileFragment"
+        android:name="com.example.wofi.ProfessionalProfileFragment"
+        android:label="פרופיל בעל מקצוע"
+        tools:layout="@layout/fragment_professional_profile">
+        <argument
+            android:name="userId"
+            app:argType="string"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_professionalProfileFragment_to_professionalsListFragment"
+            app:destination="@id/professionalsListFragment"
+            app:popUpTo="@id/professionalsListFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
 </navigation>
