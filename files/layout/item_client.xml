@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="8dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="4dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="2dp"
     app:cardBackgroundColor="@color/white"
@@ -14,8 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="16dp"
-        android:gravity="center_vertical">
+        android:padding="16dp">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -24,29 +24,30 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/professional_name"
+                android:id="@+id/client_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/primary_dark"
                 android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@color/primary_dark" />
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/professional_profession"
+                android:id="@+id/client_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/text_secondary"
-                android:layout_marginTop="4dp" />
+                android:textSize="14sp" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
             android:src="@drawable/ic_arrow_forward"
-            android:tint="@color/primary" />
+            app:tint="@color/primary" />
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</com.google.android.material.card.MaterialCardView> 
